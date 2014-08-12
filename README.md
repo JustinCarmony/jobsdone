@@ -21,6 +21,12 @@ of your command:
 vagrant up && jobsdone
 ```
 
+You can also hear something else if the command fails:
+
+```bash
+vagrant up && jobsdone || uhoh
+```
+
 ## Install
 
 Clone this repository:
@@ -34,6 +40,7 @@ git clone https://github.com/JustinCarmony/jobsdone.git
 
 # Create Symlink
 ln -s /full/path/to/jobsdone/jobsdone /usr/local/bin/jobsdone
+ln -s /full/path/to/jobsdone/uhoh /usr/local/bin/uhoh
 ```
 
 Enjoy!
