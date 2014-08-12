@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# If I'm a symlink, I need to CD to where I was declared
+if [[ -L $0 ]]; then
+  cd "$(dirname "$(readlink $0)")"
+else
+  cd "$(dirname "$0")"
+fi
+
+# Get a random number between 1 to 2
+RANDOM_NUMBER=$(jot -r 1 1 2)
+
+
+
+# Play the sound!
+afplay ./sounds/work-complete$RANDOM_NUMBER.wav
