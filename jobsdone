@@ -8,17 +8,13 @@ else
 fi
 
 # Get a random number between 1 to 2
-LC_CTYPE=C # Supposedly fix tr usage with urandom output http://bit.ly/1r7e9f4
-RANDOM_NUMBER=$(cat /dev/urandom | tr -dc '1-2' | fold -w 1 | head -n 1)
+RANDOM_NUMBER=$(( ( RANDOM % 2 )  + 1 ))
 
 # Check if afplay exists, use aplay by default
 cmd='aplay'
 
-afplay -h > /dev/null 2>&1
-AFP=$?
-
-if [[ $AFP -eq 0 ]]; then
-    cmd='afplay'
+if hash afplay 2>/dev/null; then
+  cmd='afplay'
 fi
 
 # Play the sound!
